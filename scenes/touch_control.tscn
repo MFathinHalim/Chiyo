@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cqkgogogdkps7"]
+
+[ext_resource type="Texture2D" uid="uid://dyyw7yn530bh2" path="res://assets/sprites/direction_left.png" id="1_jvlc0"]
+[ext_resource type="Script" uid="uid://dpscy60y0fpps" path="res://scripts/touch_control.gd" id="1_mjvr3"]
+[ext_resource type="Texture2D" uid="uid://5qlwj3s1266v" path="res://assets/sprites/direction_right.png" id="3_mjvr3"]
+[ext_resource type="Texture2D" uid="uid://d1i3t63bxft0m" path="res://assets/sprites/dpad_element_north.png" id="4_c40j5"]
+
+[node name="TouchControl" type="CanvasLayer" unique_id=419386180]
+visible = false
+script = ExtResource("1_mjvr3")
+
+[node name="Control" type="Control" parent="." unique_id=1421074396]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="Control" parent="Control" unique_id=2064532241]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 52.105
+offset_top = -178.33499
+offset_right = 202.105
+offset_bottom = -28.33496
+grow_vertical = 0
+
+[node name="Left" type="TouchScreenButton" parent="Control/Left" unique_id=129564554]
+texture_normal = ExtResource("1_jvlc0")
+action = "move_left"
+
+[node name="Right" type="Control" parent="Control" unique_id=1799856659]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 285.55
+offset_top = -178.33499
+offset_right = 435.54996
+offset_bottom = -28.33496
+grow_vertical = 0
+
+[node name="Right" type="TouchScreenButton" parent="Control/Right" unique_id=105138536]
+texture_normal = ExtResource("3_mjvr3")
+texture_pressed = ExtResource("3_mjvr3")
+action = "move_right"
+
+[node name="Jump" type="Control" parent="Control" unique_id=316983077]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -263.07
+offset_top = -178.33499
+offset_right = -113.07007
+offset_bottom = -28.33496
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Jump" type="TouchScreenButton" parent="Control/Jump" unique_id=1762339940]
+texture_normal = ExtResource("4_c40j5")
+action = "jump"
