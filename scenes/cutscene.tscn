@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dwvm4ss064mqh"]
+
+[ext_resource type="Script" uid="uid://bgqntex7xvix6" path="res://scripts/cutscene.gd" id="1_0sipp"]
+[ext_resource type="Texture2D" uid="uid://tq4vfw4884yp" path="res://assets/cutscenes/cutscenetest.jpg" id="1_a320b"]
+[ext_resource type="PackedScene" uid="uid://da2oilcl6utdd" path="res://scenes/text_box.tscn" id="1_edmg7"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=318154428]
+script = ExtResource("1_0sipp")
+
+[node name="TextBox" parent="." unique_id=2066388255 instance=ExtResource("1_edmg7")]
+layer = 10
+
+[node name="Background" type="TextureRect" parent="." unique_id=555416201]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a320b")

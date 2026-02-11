@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal dialog_finished
+
 const CHAR_READ_RATE = 0.05
 
 @onready var textbox_container: MarginContainer = $TextboxContainer
@@ -21,16 +23,18 @@ func _ready():
 	hide_textbox()
 
 func start_dialog(lines: Array[String]):
-	text_queue.clear()
-	for line in lines:
-		text_queue.push_back(line)
+	text_queue = lines.duplicate()
+	print(text_queue)
 	change_state(State.READY)
+	show_textbox()
 
 func _process(delta):
 	match current_state:
 		State.READY:
 			if not text_queue.is_empty():
 				display_text()
+				show_textbox()
+				print("test")
 
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept"):
@@ -42,11 +46,12 @@ func _process(delta):
 
 		State.FINISHED:
 			if Input.is_action_just_pressed("ui_accept"):
-				change_state(State.READY)
-				hide_textbox()
-
-func queue_text(next_text: String):
-	text_queue.push_back(next_text)
+				if text_queue.is_empty():
+					hide_textbox()
+					change_state(State.READY)
+					dialog_finished.emit()
+				else:
+					change_state(State.READY)
 
 func hide_textbox():
 	start_symbol.text = ""
@@ -81,8 +86,3 @@ func change_state(next_state):
 func _on_tween_finished():
 	end_symbol.text = "v"
 	change_state(State.FINISHED)
-
-
-func _on_press_g_button_down() -> void:
-	Input.action_press("ui_accept")
-	Input.action_release("ui_accept")
