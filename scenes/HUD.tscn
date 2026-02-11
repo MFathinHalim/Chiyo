@@ -1,64 +1,136 @@
 [gd_scene format=3 uid="uid://cx3d8wji3ohu5"]
 
 [ext_resource type="FontFile" uid="uid://cee6svk0eyaju" path="res://assets/fonts/PixelOperator8.ttf" id="1_7hsmw"]
-[ext_resource type="Texture2D" uid="uid://boiffcupqugyd" path="res://assets/sprites/coin.png" id="2_nysna"]
-[ext_resource type="Texture2D" uid="uid://cagc1wr7rrq8p" path="res://assets/sprites/fruit.png" id="3_f6qnu"]
-[ext_resource type="Texture2D" uid="uid://bhk2tr8b5676n" path="res://assets/sprites/world_tileset.png" id="4_k4w17"]
+[ext_resource type="Script" uid="uid://biaghjcqylm0o" path="res://scripts/dead.gd" id="1_nysna"]
+[ext_resource type="Texture2D" uid="uid://cgp4vuha7bgvc" path="res://assets/sprites/koin.png" id="3_7hsmw"]
+[ext_resource type="Texture2D" uid="uid://dehokjti2taby" path="res://assets/sprites/buah.png" id="4_7hsmw"]
+[ext_resource type="Texture2D" uid="uid://dndlvnakk6chg" path="res://assets/sprites/mabok.png" id="4_nysna"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
-atlas = ExtResource("2_nysna")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pl11u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kvuet")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trtic"]
-atlas = ExtResource("3_f6qnu")
-region = Rect2(0, 48, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ir15t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trtic")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
-atlas = ExtResource("4_k4w17")
-region = Rect2(0, 128, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_264po"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ir15t")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
+[sub_resource type="Theme" id="Theme_7hsmw"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=666284331]
+script = ExtResource("1_nysna")
 
-[node name="coinui" type="Node" parent="." unique_id=1468100675]
+[node name="Control" type="Control" parent="." unique_id=1890191999]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Score2" type="Label" parent="coinui" unique_id=174115602]
-offset_left = 72.5
-offset_top = 32.5
-offset_right = 150.5
-offset_bottom = 56.5
+[node name="Game Over" type="ColorRect" parent="Control" unique_id=1386368541]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.22352941)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Game Over" unique_id=788736454]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -387.5
+offset_top = -198.5
+offset_right = 417.5
+offset_bottom = 219.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Game Over/PanelContainer" unique_id=132668003]
+layout_mode = 2
+theme_override_constants/margin_left = 82
+theme_override_constants/margin_top = 37
+theme_override_constants/margin_right = 82
+theme_override_constants/margin_bottom = 37
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Game Over/PanelContainer/MarginContainer" unique_id=223851128]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Control/Game Over/PanelContainer/MarginContainer/VBoxContainer" unique_id=833447838]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_7hsmw")
+theme_override_font_sizes/font_size = 42
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="Control/Game Over/PanelContainer/MarginContainer/VBoxContainer" unique_id=754657967]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_7hsmw")
+theme_override_fonts/font = ExtResource("1_7hsmw")
+theme_override_font_sizes/font_size = 32
+text = "Try Again"
+
+[node name="Quit" type="Button" parent="Control/Game Over/PanelContainer/MarginContainer/VBoxContainer" unique_id=613208664]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_7hsmw")
+theme_override_fonts/font = ExtResource("1_7hsmw")
+theme_override_font_sizes/font_size = 32
+text = "Quit Game"
+
+[node name="Nyawa" type="MarginContainer" parent="Control" unique_id=1205855520]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_bottom = 16.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 9
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Nyawa" unique_id=896242215]
+custom_minimum_size = Vector2(0.945, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="Nyawa 1" type="TextureRect" parent="Control/Nyawa/HBoxContainer" unique_id=376590892]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_7hsmw")
+expand_mode = 1
+
+[node name="Nyawa 2" type="TextureRect" parent="Control/Nyawa/HBoxContainer" unique_id=1223752373]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_7hsmw")
+expand_mode = 1
+
+[node name="Nyawa 3" type="TextureRect" parent="Control/Nyawa/HBoxContainer" unique_id=2141934158]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("4_7hsmw")
+expand_mode = 2
+
+[node name="coinui" type="MarginContainer" parent="Control" unique_id=1886276290]
+layout_mode = 1
+offset_right = 87.0
+offset_bottom = 34.0
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/coinui" unique_id=73597267]
+custom_minimum_size = Vector2(0.945, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="Coins" type="TextureRect" parent="Control/coinui/HBoxContainer" unique_id=1223924081]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("3_7hsmw")
+expand_mode = 1
+
+[node name="Score2" type="Label" parent="Control/coinui/HBoxContainer" unique_id=174115602]
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("1_7hsmw")
@@ -67,32 +139,12 @@ text = "0/30"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Coins" type="AnimatedSprite2D" parent="coinui" unique_id=602229378]
-position = Vector2(46.5, 43.5)
-scale = Vector2(2.8125, 2.8125)
-sprite_frames = SubResource("SpriteFrames_pl11u")
-frame_progress = 0.68453926
+[node name="Mabok" type="TextureRect" parent="Control/coinui/HBoxContainer" unique_id=1571318805]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_nysna")
+expand_mode = 1
 
-[node name="Nyawa" type="Node" parent="." unique_id=848386712]
-
-[node name="Nyawa 1" type="AnimatedSprite2D" parent="Nyawa" unique_id=1536633679]
-position = Vector2(1108.8159, 35)
-scale = Vector2(2.852, 2.813)
-sprite_frames = SubResource("SpriteFrames_ir15t")
-
-[node name="Nyawa 2" type="AnimatedSprite2D" parent="Nyawa" unique_id=265704499]
-position = Vector2(1065.8159, 35)
-scale = Vector2(2.852, 2.813)
-sprite_frames = SubResource("SpriteFrames_ir15t")
-
-[node name="Nyawa 3" type="AnimatedSprite2D" parent="Nyawa" unique_id=1342151272]
-position = Vector2(1023.816, 35)
-scale = Vector2(2.852, 2.813)
-sprite_frames = SubResource("SpriteFrames_ir15t")
-
-[node name="mabuk" type="AnimatedSprite2D" parent="Nyawa" unique_id=1542699470]
-position = Vector2(185.081, 40.67)
-scale = Vector2(2.852, 2.813)
-sprite_frames = SubResource("SpriteFrames_264po")
-autoplay = "default"
-frame_progress = 0.4314145
+[connection signal="button_down" from="Control/Game Over/PanelContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="Control/Game Over/PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]

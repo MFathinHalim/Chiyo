@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://da2oilcl6utdd"]
+
+[ext_resource type="Script" uid="uid://bookpif07dd4g" path="res://scripts/text_box.gd" id="1_dyarx"]
+[ext_resource type="FontFile" uid="uid://cee6svk0eyaju" path="res://assets/fonts/PixelOperator8.ttf" id="1_wscpg"]
+[ext_resource type="FontFile" uid="uid://dd26raxl2oo0q" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_qdwih"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dhrm"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+
+[node name="TextBox" type="CanvasLayer" unique_id=2066388255]
+script = ExtResource("1_dyarx")
+
+[node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1554775653]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -236.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="TextboxContainer" unique_id=2021083060]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0dhrm")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer/Panel" unique_id=955899535]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/Panel/MarginContainer" unique_id=2033718422]
+layout_mode = 2
+
+[node name="Star" type="Label" parent="TextboxContainer/Panel/MarginContainer/HBoxContainer" unique_id=1155467317]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_wscpg")
+theme_override_font_sizes/font_size = 36
+text = "*"
+
+[node name="Label" type="RichTextLabel" parent="TextboxContainer/Panel/MarginContainer/HBoxContainer" unique_id=1221862227]
+custom_minimum_size = Vector2(0, 158.71)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/normal_font = ExtResource("1_wscpg")
+theme_override_fonts/bold_font = ExtResource("3_qdwih")
+theme_override_font_sizes/normal_font_size = 32
+text = "lorem ipsum lba bla bal bla bla bla bba ba ba baba  ba ba ba ba ab  abba b aba ba ba abb aab ba b ab ab aab ba "
+autowrap_mode = 2
+
+[node name="V" type="Label" parent="TextboxContainer/Panel/MarginContainer/HBoxContainer" unique_id=698864876]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_wscpg")
+theme_override_font_sizes/font_size = 36
+text = "v"
+
+[node name="PressG" type="Button" parent="." unique_id=1134704660]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -68.0
+offset_right = 258.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_wscpg")
+theme_override_font_sizes/font_size = 53
+text = "PRESS G"
+
+[connection signal="button_down" from="PressG" to="." method="_on_press_g_button_down"]

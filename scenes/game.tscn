@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://d21cf0qq7teag" path="res://scenes/potion.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://cx3d8wji3ohu5" path="res://scenes/HUD.tscn" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://d4hxe0k5aayr" path="res://scenes/gerbang.tscn" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://da2oilcl6utdd" path="res://scenes/text_box.tscn" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://m6p5ognuo3ep" path="res://scenes/sign.tscn" id="15_ir15t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -223,7 +225,7 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vtaks"]
 
-[node name="Game" type="Node2D" unique_id=718822188]
+[node name="Game" type="Node2D" unique_id=718822188 groups=["hud"]]
 script = ExtResource("1_kvpfn")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1839683269]
@@ -434,3 +436,10 @@ unique_name_in_owner = true
 
 [node name="gerbang" parent="." unique_id=311127628 instance=ExtResource("13_kvuet")]
 position = Vector2(1177, -255)
+
+[node name="TextBox" parent="." unique_id=2066388255 instance=ExtResource("14_trtic")]
+unique_name_in_owner = true
+
+[node name="sign" parent="." unique_id=1163526547 instance=ExtResource("15_ir15t")]
+position = Vector2(119, -15)
+dialog_lines = Array[String](["Halo Petualang", "Selamat Datang"])
