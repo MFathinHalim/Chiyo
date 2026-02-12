@@ -11,8 +11,7 @@ func add_point():
 	score += 1
 	
 func add_nyawa():
-	if(nyawa > 1 and nyawa < 3):
-		nyawa += 1
+	nyawa += 1
 
 func check_nyawa() -> bool:
 	nyawa -= 1
