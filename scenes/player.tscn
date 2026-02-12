@@ -73,6 +73,18 @@ region = Rect2(96, 0, 32, 32)
 atlas = ExtResource("1_3vyb7")
 region = Rect2(128, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2b1d"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs1tg"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dvfe"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(224, 64, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(0, 64, 32, 32)
@@ -221,6 +233,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2b1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs1tg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dvfe")
 }],
 "loop": true,
 "name": &"jump",
@@ -277,7 +298,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -298,7 +319,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
-radius = 5.0990195
+radius = 6.0
 
 [node name="player" type="CharacterBody2D" unique_id=1665970681]
 z_index = 5
@@ -308,13 +329,13 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=391838829]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"sakit"
+animation = &"dash"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
+frame = 1
+frame_progress = 0.087726824
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1572150451]
-position = Vector2(0, -5)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_fjrip")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
