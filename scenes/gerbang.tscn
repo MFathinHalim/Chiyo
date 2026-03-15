@@ -1,75 +1,38 @@
 [gd_scene format=3 uid="uid://d4hxe0k5aayr"]
 
 [ext_resource type="Script" uid="uid://bnwkoy3176mwv" path="res://scripts/gerbang.gd" id="1_8dbod"]
-[ext_resource type="Texture2D" uid="uid://bhk2tr8b5676n" path="res://assets/sprites/world_tileset.png" id="2_w38a4"]
+[ext_resource type="Texture2D" uid="uid://bbjgvh0sqnje6" path="res://assets/sprites/slime_green.png" id="2_w38a4"]
 [ext_resource type="AudioStream" uid="uid://8uxbua4kdedk" path="res://assets/sounds/power_up.wav" id="3_vla2v"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w38a4"]
-atlas = ExtResource("2_w38a4")
-region = Rect2(112, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vla2v"]
 atlas = ExtResource("2_w38a4")
-region = Rect2(128, 32, 16, 16)
+region = Rect2(0, 28, 24, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0y3r"]
 atlas = ExtResource("2_w38a4")
-region = Rect2(64, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_je7ul"]
-atlas = ExtResource("2_w38a4")
-region = Rect2(80, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o4rtx"]
-atlas = ExtResource("2_w38a4")
-region = Rect2(48, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8tby5"]
-atlas = ExtResource("2_w38a4")
-region = Rect2(32, 48, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kelhc"]
-atlas = ExtResource("2_w38a4")
-region = Rect2(16, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lojya"]
-atlas = ExtResource("2_w38a4")
-region = Rect2(0, 32, 16, 16)
+region = Rect2(24, 28, 24, 28)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s5w7y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w38a4")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_vla2v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x0y3r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_je7ul")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o4rtx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8tby5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kelhc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lojya")
 }],
 "loop": true,
 "name": &"default",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0y3r")
+}],
+"loop": true,
+"name": &"terbuka",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_relgi"]
-radius = 16.03122
+radius = 9.0
 
 [sub_resource type="Animation" id="Animation_d14el"]
 length = 0.001
@@ -177,9 +140,9 @@ script = ExtResource("1_8dbod")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1414933998]
 sprite_frames = SubResource("SpriteFrames_s5w7y")
 autoplay = "default"
-frame_progress = 0.8298011
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085504937]
+position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_relgi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=378260379]

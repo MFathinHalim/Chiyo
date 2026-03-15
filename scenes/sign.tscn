@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://qq76h3rqm4j2" path="res://scripts/sign.gd" id="1_8yyji"]
 [ext_resource type="Texture2D" uid="uid://bhk2tr8b5676n" path="res://assets/sprites/world_tileset.png" id="2_ge2pc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ge2pc"]
-atlas = ExtResource("2_ge2pc")
-region = Rect2(128, 48, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkam6"]
 atlas = ExtResource("2_ge2pc")
 region = Rect2(128, 64, 16, 16)
@@ -14,9 +10,6 @@ region = Rect2(128, 64, 16, 16)
 [sub_resource type="SpriteFrames" id="SpriteFrames_s5w7y"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ge2pc")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qkam6")
 }],

@@ -198,6 +198,13 @@ _data = {
 &"pickup_animation": SubResource("Animation_1ikuy")
 }
 
+[sub_resource type="Gradient" id="Gradient_11l1o"]
+offsets = PackedFloat32Array(0.007380074, 1)
+colors = PackedColorArray(0.99215686, 0.99215686, 0, 0.4627451, 1, 0.5647059, 0, 0.31764707)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d14el"]
+gradient = SubResource("Gradient_11l1o")
+
 [node name="Coin" type="Area2D" unique_id=1985064362]
 collision_mask = 2
 script = ExtResource("1_i64fm")
@@ -218,5 +225,8 @@ libraries/ = SubResource("AnimationLibrary_wnlwo")
 [node name="PickUp" type="AudioStreamPlayer2D" parent="." unique_id=335835923]
 stream = ExtResource("3_11l1o")
 bus = &"Sound Effect"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1060317816]
+texture = SubResource("GradientTexture2D_d14el")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

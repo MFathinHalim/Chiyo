@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bg7n4r4hjgqej"]
+
+[ext_resource type="Script" uid="uid://bdcwatbrufsdk" path="res://scripts/dialog_indicator.gd" id="1_oguqj"]
+
+[node name="dialog" type="Area2D" unique_id=1985064362]
+collision_mask = 2
+script = ExtResource("1_oguqj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

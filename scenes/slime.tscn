@@ -43,7 +43,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_da4t2"]
 size = Vector2(14, 15)
 
-[node name="slime" type="Node2D" unique_id=475801033]
+[sub_resource type="Gradient" id="Gradient_n6pvg"]
+colors = PackedColorArray(1, 0, 0, 1, 0.9967399, 0, 0.15052164, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pjw23"]
+gradient = SubResource("Gradient_n6pvg")
+
+[node name="slime" type="CharacterBody2D" unique_id=2060247073]
+collision_layer = 4
 script = ExtResource("1_n6pvg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1270272569]
@@ -60,8 +67,20 @@ target_position = Vector2(13, 0)
 position = Vector2(0, -6)
 target_position = Vector2(-13, 0)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1815242772]
+light_mask = 4
+position = Vector2(0, -7.7)
+shape = SubResource("RectangleShape2D_da4t2")
+
 [node name="Killzone" parent="." unique_id=1404312339 instance=ExtResource("2_4l1t8")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=715819920]
-position = Vector2(0, -7.5)
+position = Vector2(0, -7.7)
 shape = SubResource("RectangleShape2D_da4t2")
+
+[node name="RayCastDown" type="RayCast2D" parent="." unique_id=1110125387]
+position = Vector2(0, -6)
+target_position = Vector2(0, 8)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=351745924]
+texture = SubResource("GradientTexture2D_pjw23")

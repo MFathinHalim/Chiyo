@@ -23,8 +23,8 @@ func _ready():
 	hide_textbox()
 
 func start_dialog(lines: Array[String]):
+	# duplicate supaya gak merubah original
 	text_queue = lines.duplicate()
-	print(text_queue)
 	change_state(State.READY)
 	show_textbox()
 
@@ -34,7 +34,6 @@ func _process(delta):
 			if not text_queue.is_empty():
 				display_text()
 				show_textbox()
-				print("test")
 
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept"):
@@ -49,7 +48,7 @@ func _process(delta):
 				if text_queue.is_empty():
 					hide_textbox()
 					change_state(State.READY)
-					dialog_finished.emit()
+					dialog_finished.emit()  # boss bisa resume_attack()
 				else:
 					change_state(State.READY)
 
@@ -77,7 +76,6 @@ func display_text():
 		1.0,
 		next_text.length() * CHAR_READ_RATE
 	)
-
 	tween.finished.connect(_on_tween_finished)
 
 func change_state(next_state):

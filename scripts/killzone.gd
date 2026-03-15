@@ -4,6 +4,8 @@ extends Area2D
 @onready var duar: AudioStreamPlayer2D = $duar
 
 func _on_body_entered(body: Node2D) -> void:
+	if !body.name == "player":
+		return
 	if(body.is_hurt or GameManager.SPEED == 200): return
 	hurt.playing = true
 	body.is_hurt = true

@@ -34,6 +34,8 @@ window/stretch/aspect="expand"
 [global_group]
 
 hud=""
+player=""
+flash=""
 
 [input]
 

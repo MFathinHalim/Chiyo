@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cduxhwgc0ahve"]
+
+[ext_resource type="Script" uid="uid://cthpq87eo610y" path="res://scripts/burung.gd" id="1_73lxo"]
+[ext_resource type="Texture2D" uid="uid://7y85lf1vclai" path="res://assets/sprites/burung.png" id="2_73lxo"]
+[ext_resource type="PackedScene" uid="uid://dsfkfvtmt54gs" path="res://scenes/killzone.tscn" id="3_vq0fl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vksfh"]
+atlas = ExtResource("2_73lxo")
+region = Rect2(0, 36, 24, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq0fl"]
+atlas = ExtResource("2_73lxo")
+region = Rect2(24, 36, 24, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73lxo"]
+atlas = ExtResource("2_73lxo")
+region = Rect2(0, 54, 24, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhxds"]
+atlas = ExtResource("2_73lxo")
+region = Rect2(48, 36, 24, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw8qi"]
+atlas = ExtResource("2_73lxo")
+region = Rect2(72, 36, 24, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5b0gg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vksfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq0fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73lxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhxds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq0fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw8qi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da4t2"]
+size = Vector2(13, 10)
+
+[sub_resource type="Gradient" id="Gradient_j2mit"]
+colors = PackedColorArray(1, 0, 0, 1, 0.9967399, 0, 0.15052164, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_73lxo"]
+gradient = SubResource("Gradient_j2mit")
+
+[node name="burung" type="CharacterBody2D" unique_id=2060247073]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_73lxo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1270272569]
+scale = Vector2(0.75000006, 0.7777778)
+sprite_frames = SubResource("SpriteFrames_5b0gg")
+autoplay = "default"
+frame_progress = 0.42124924
+
+[node name="Killzone" parent="." unique_id=1404312339 instance=ExtResource("3_vq0fl")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=715819920]
+visible = false
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_da4t2")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=288400035]
+texture = SubResource("GradientTexture2D_73lxo")
