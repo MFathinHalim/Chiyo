@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cxlirefaaludk"]
+
+[ext_resource type="Texture2D" uid="uid://bhskfdk6bdxvw" path="res://assets/sprites/campfire.png" id="1_54scn"]
+[ext_resource type="PackedScene" uid="uid://dy6rk6eiqk472" path="res://scenes/api.tscn" id="2_yfrnb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pk5p"]
+atlas = ExtResource("1_54scn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6xh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pk5p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Obor" type="AnimatedSprite2D" unique_id=1541740562]
+sprite_frames = SubResource("SpriteFrames_m6xh0")
+autoplay = "default"
+
+[node name="Obor" parent="." unique_id=928208474 instance=ExtResource("2_yfrnb")]
+frame_progress = 0.26843488

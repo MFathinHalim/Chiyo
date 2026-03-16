@@ -83,4 +83,6 @@ position = Vector2(0, -6)
 target_position = Vector2(0, 8)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=351745924]
+position = Vector2(0.5, 8.5)
+scale = Vector2(0.234375, 0.734375)
 texture = SubResource("GradientTexture2D_pjw23")

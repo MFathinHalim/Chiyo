@@ -17,27 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://da2oilcl6utdd" path="res://scenes/text_box.tscn" id="13_1wpw8"]
 [ext_resource type="PackedScene" uid="uid://v5u72cpmkpqh" path="res://scenes/boss/boss2.tscn" id="14_w24lh"]
 
-[sub_resource type="Environment" id="Environment_tsmbm"]
-background_mode = 3
-ambient_light_color = Color(0.36028522, 0.77414596, 0.99999994, 1)
-ambient_light_energy = 4.33
-tonemap_mode = 2
-tonemap_exposure = 0.3
-glow_enabled = true
-glow_levels/2 = 1.4
-glow_levels/3 = 0.0
-glow_levels/4 = 0.0
-glow_intensity = 0.76
-glow_strength = 0.54
-glow_bloom = 1.0
-glow_hdr_luminance_cap = 46.36
-glow_map_strength = 0.2
-fog_mode = 1
-fog_light_energy = 3.79
-fog_density = 1.0
-fog_height_density = -5.1544
-fog_depth_curve = 1.7411014
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_522sc"]
 texture = ExtResource("6_ev8xs")
 0:0/0 = 0
@@ -274,11 +253,29 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7v7a"]
 size = Vector2(13.57143, 74.206894)
 
+[sub_resource type="Environment" id="Environment_tsmbm"]
+background_mode = 3
+ambient_light_color = Color(0.36028522, 0.77414596, 0.99999994, 1)
+ambient_light_energy = 4.33
+tonemap_mode = 2
+tonemap_exposure = 0.3
+glow_enabled = true
+glow_levels/2 = 1.4
+glow_levels/3 = 0.0
+glow_levels/4 = 0.0
+glow_intensity = 0.87
+glow_strength = 0.54
+glow_bloom = 1.0
+glow_hdr_luminance_cap = 46.36
+glow_map_strength = 0.2
+fog_mode = 1
+fog_light_energy = 3.79
+fog_density = 1.0
+fog_height_density = -5.1544
+fog_depth_curve = 1.7411014
+
 [node name="level1" type="Node2D" unique_id=718822188 groups=["hud"]]
 script = ExtResource("1_w24lh")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1196515249]
-environment = SubResource("Environment_tsmbm")
 
 [node name="EntityMap" type="TileMap" parent="." unique_id=1190749746]
 unique_name_in_owner = true
@@ -390,7 +387,7 @@ unique_name_in_owner = true
 [node name="Sign" type="Node" parent="." unique_id=1227918116]
 
 [node name="boss2" parent="." unique_id=1454125442 instance=ExtResource("14_w24lh")]
-position = Vector2(-121, 3)
+position = Vector2(-131, 0)
 scale = Vector2(1.5079689, 1.4543651)
 
 [node name="PETIRKIRI" type="Area2D" parent="." unique_id=1320231833]
@@ -432,3 +429,6 @@ position = Vector2(6.0000005, -14.999999)
 scale = Vector2(2.0416667, 3.625)
 shape = SubResource("RectangleShape2D_t7v7a")
 disabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1196515249]
+environment = SubResource("Environment_tsmbm")

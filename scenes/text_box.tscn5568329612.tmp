@@ -4,16 +4,12 @@
 [ext_resource type="FontFile" uid="uid://cee6svk0eyaju" path="res://assets/fonts/PixelOperator8.ttf" id="1_wscpg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dhrm"]
-bg_color = Color(0.2159017, 0.21590173, 0.21590161, 1)
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 8
 border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
-border_color = Color(0.52318406, 0.51039606, 0.7614565, 1)
-corner_radius_top_left = 43
-corner_radius_top_right = 43
-corner_radius_bottom_right = 43
-corner_radius_bottom_left = 43
+border_color = Color(1, 1, 1, 1)
 
 [node name="TextBox" type="CanvasLayer" unique_id=2066388255]
 script = ExtResource("1_dyarx")
@@ -53,9 +49,7 @@ layout_mode = 2
 [node name="NameLabel" type="Label" parent="TextboxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1155467317]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 36
 text = "Naomi"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/Panel/MarginContainer/VBoxContainer" unique_id=2033718422]

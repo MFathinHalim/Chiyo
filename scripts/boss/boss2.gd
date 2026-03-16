@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal hide_interact(sign)
 signal show_interact(sign)
-signal trigger_dialog(lines: Array[String])
+signal trigger_dialog(lines: Array[Dictionary])
 
 var player: CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -32,32 +32,55 @@ var attack_count := 0
 @onready var flash = get_tree().get_first_node_in_group("flash")
 # 5 serangan, tiap serangan bisa punya beberapa kalimat dipisah "||"
 @export var dialog_list := [
-	"Selamat datang!||Mari bermain!",
-	"HATI-HATI!||Aku akan menyerang||Cepat lari!",
-	"HAHAHA||Kau pikir bisa menang?||Jangan terlalu percaya diri!",
-	"NYERANG SEKARANG!||Jangan diam saja",
-	"Ini terakhir!||Tahan serangan terakhirku||Semoga berhasil!"
+	# Format sekarang: array of dictionaries { "name": ..., "text": ... }
+	[
+		{ "name": "Zeus", "text": "Selamat datang!" },
+		{ "name": "Zeus", "text": "Mari bermain!" }
+	],
+	[
+		{ "name": "Zeus", "text": "HATI-HATI!" },
+		{ "name": "Zeus", "text": "Aku akan menyerang" },
+		{ "name": "Zeus", "text": "Cepat lari!" }
+	],
+	[
+		{ "name": "Zeus", "text": "HAHAHA" },
+		{ "name": "Zeus", "text": "Kau pikir bisa menang?" },
+		{ "name": "Zeus", "text": "Jangan terlalu percaya diri!" }
+	],
+	[
+		{ "name": "Zeus", "text": "NYERANG SEKARANG!" },
+		{ "name": "Zeus", "text": "Jangan diam saja" }
+	],
+	[
+		{ "name": "Zeus", "text": "Ini terakhir!" },
+		{ "name": "Zeus", "text": "Tahan serangan terakhirku" },
+		{ "name": "Zeus", "text": "Semoga berhasil!" }
+	]
 ]
-
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-
-	# register ke HUD supaya trigger_dialognya connect
+	
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
 		hud.register_sign(self)
-
-	# mulai dengan dialog pertama
+	
+	# pastikan dialog_list valid
 	if dialog_list.size() > 0:
-		attack_count = 1
-		call_deferred("start_dialog")
-	else:
-		change_state(IDLE)
+		attack_count = 0
+		call_deferred("_start_next_dialog")
 	
 	lightning_left.hide()
 	lightning_right.hide()
 	lighting_collision.disabled = true
 	lighting_collision2.disabled = true
+	
+func _start_next_dialog():
+	if attack_count >= dialog_list.size():
+		change_state(FINISH)
+		return
+	
+	attack_count += 1
+	start_dialog()
 
 func _physics_process(delta):
 	if state == DIALOG:
@@ -131,9 +154,15 @@ func change_state(new_state):
 
 func start_dialog():
 	change_state(DIALOG)
-	var raw_lines = dialog_list[attack_count - 1]
-	trigger_dialog.emit(raw_lines.split("||"))  # kirim array of string ke TextBox
 
+	var raw_lines = dialog_list[attack_count - 1]
+	var lines: Array[Dictionary] = []
+
+	for item in raw_lines:
+		lines.append(item as Dictionary)  # pastiin tiap element dicast Dictionary
+
+	trigger_dialog.emit(lines)
+	
 func resume_attack():
 	if attack_count <= dialog_list.size():
 		change_state(IDLE)

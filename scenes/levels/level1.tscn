@@ -20,8 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://dgcpu67vvfqf" path="res://assets/sprites/PNG files/ParallaxCave3.png" id="18_jrfo0"]
 [ext_resource type="Texture2D" uid="uid://b7n1ttc8fgc8m" path="res://assets/sprites/PNG files/ParallaxCave4.png" id="19_db1r7"]
 [ext_resource type="PackedScene" uid="uid://cduxhwgc0ahve" path="res://scenes/burung.tscn" id="20_gvm5i"]
-[ext_resource type="Texture2D" uid="uid://dmkrt2tuan78c" path="res://assets/sprites/naomi.png" id="21_db1r7"]
-[ext_resource type="Texture2D" uid="uid://b5ecnfuv4whoc" path="res://assets/sprites/api.png" id="21_jrfo0"]
+[ext_resource type="PackedScene" uid="uid://bfhsopfa4ut57" path="res://scenes/naomi.tscn" id="21_db1r7"]
+[ext_resource type="PackedScene" uid="uid://cxlirefaaludk" path="res://scenes/campfire.tscn" id="22_db1r7"]
 
 [sub_resource type="Environment" id="Environment_ps2vj"]
 background_mode = 3
@@ -1332,140 +1332,6 @@ sources/0 = SubResource("TileSetAtlasSource_gvm5i")
 sources/2 = SubResource("TileSetAtlasSource_jrfo0")
 sources/3 = SubResource("TileSetAtlasSource_db1r7")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y71nm"]
-atlas = ExtResource("21_db1r7")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6d4iq"]
-atlas = ExtResource("21_db1r7")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7plwd"]
-atlas = ExtResource("21_db1r7")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_agrr7"]
-atlas = ExtResource("21_db1r7")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_b2isc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y71nm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6d4iq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7plwd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_agrr7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 3.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_db1r7"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6gwlt"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2nc4"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vhxpm"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_arkx4"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqv5m"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_noix2"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_025c5"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bw3ef"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(128, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_07dy8"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(144, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3gp1u"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(160, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_igeo0"]
-atlas = ExtResource("21_jrfo0")
-region = Rect2(176, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_y71nm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_db1r7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6gwlt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c2nc4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vhxpm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_arkx4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jqv5m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_noix2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_025c5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bw3ef")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_07dy8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3gp1u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_igeo0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Gradient" id="Gradient_jrfo0"]
-colors = PackedColorArray(1, 0, 0, 1, 0.99215686, 0.5882353, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_db1r7"]
-gradient = SubResource("Gradient_jrfo0")
-
 [node name="level1" type="Node2D" unique_id=718822188 groups=["hud"]]
 script = ExtResource("1_ps2vj")
 
@@ -1484,7 +1350,7 @@ layer_1/name = "Mid"
 position = Vector2(-37, 8)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=347014097]
-position = Vector2(2, -50)
+position = Vector2(0, -8)
 zoom = Vector2(4, 4)
 limit_bottom = 121
 limit_smoothed = true
@@ -1532,12 +1398,12 @@ unique_name_in_owner = true
 [node name="gerbang" parent="." unique_id=311127628 instance=ExtResource("13_jqv5m")]
 position = Vector2(173, -962)
 
-[node name="TextBox" parent="." unique_id=2066388255 instance=ExtResource("14_noix2")]
-unique_name_in_owner = true
-
 [node name="sign" parent="." unique_id=1163526547 instance=ExtResource("15_025c5")]
 position = Vector2(474, -112)
-dialog_lines = Array[String](["Lantai diatas hanya bisa dilewati dari bawah"])
+dialog_lines = Array[Dictionary]([{
+"name": "Papan Kayu",
+"text": "Lantai Diatas Hanya Bisa Dinaiki Satu Arah!"
+}])
 
 [node name="EntityMap" type="TileMap" parent="." unique_id=1486754630]
 unique_name_in_owner = true
@@ -1590,27 +1456,27 @@ grow_vertical = 2
 texture = ExtResource("16_4fww7")
 expand_mode = 1
 
+[node name="TextBox" parent="." unique_id=2066388255 groups=["hud"] instance=ExtResource("14_noix2")]
+unique_name_in_owner = true
+
 [node name="burung" parent="." unique_id=2060247073 instance=ExtResource("20_gvm5i")]
 position = Vector2(223, -393)
 
-[node name="Naomi" type="CharacterBody2D" parent="." unique_id=126462803]
+[node name="Naomi" parent="." unique_id=18512331 instance=ExtResource("21_db1r7")]
 position = Vector2(8, -3)
-rotation = 3.1415927
-scale = Vector2(1, -1)
+dialog_lines = Array[Dictionary]([{
+"name": "???",
+"text": "hmm jadi begitu ceritanya"
+}, {
+"name": "Aditya",
+"text": "Ya kurang lebih begitulah"
+}, {
+"name": "Aditya",
+"text": "Ngomong-ngomong kamu tadi siapa namanya?"
+}, {
+"name": "Naomi",
+"text": "Nama ku Stella Naomi Talia. Aku juga terbangun dari dunia nyata tapi aku tiba tiba saat bangun dari tidur dikelas"
+}])
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Naomi" unique_id=1288237120]
-sprite_frames = SubResource("SpriteFrames_b2isc")
-autoplay = "default"
-frame_progress = 0.8918121
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1990975794]
-position = Vector2(-13, 3)
-sprite_frames = SubResource("SpriteFrames_y71nm")
-autoplay = "default"
-frame_progress = 0.009352009
-
-[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=961275866]
-position = Vector2(1, -1)
-scale = Vector2(0.37500003, 0.92968744)
-color = Color(0.7975422, 0.53600764, 0.091385745, 1)
-texture = SubResource("GradientTexture2D_db1r7")
+[node name="Obor" parent="." unique_id=1541740562 instance=ExtResource("22_db1r7")]
+position = Vector2(-16, 3)

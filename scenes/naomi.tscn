@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bfhsopfa4ut57"]
+
+[ext_resource type="Script" uid="uid://qq76h3rqm4j2" path="res://scripts/sign.gd" id="1_1yyua"]
+[ext_resource type="Texture2D" uid="uid://dmkrt2tuan78c" path="res://assets/sprites/naomi.png" id="1_yfa4l"]
+[ext_resource type="Texture2D" uid="uid://cnwoowm1rpq6f" path="res://assets/sprites/popup.png" id="3_q52n8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y71nm"]
+atlas = ExtResource("1_yfa4l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d4iq"]
+atlas = ExtResource("1_yfa4l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7plwd"]
+atlas = ExtResource("1_yfa4l")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agrr7"]
+atlas = ExtResource("1_yfa4l")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2isc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y71nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d4iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7plwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agrr7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q52n8"]
+size = Vector2(47, 20)
+
+[node name="Naomi" type="Area2D" unique_id=891216829]
+rotation = 3.1415927
+scale = Vector2(1, -1)
+collision_mask = 2
+script = ExtResource("1_1yyua")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=24597259]
+sprite_frames = SubResource("SpriteFrames_b2isc")
+autoplay = "default"
+frame_progress = 0.8918121
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1160817936]
+position = Vector2(-2.5000002, 2.0000014)
+shape = SubResource("RectangleShape2D_q52n8")
+
+[node name="popup" type="Sprite2D" parent="." unique_id=1564936577]
+visible = false
+z_index = 4096
+position = Vector2(-1.9999982, -18.000002)
+scale = Vector2(0.06435202, 0.069999985)
+texture = ExtResource("3_q52n8")
+
+[node name="Label" type="Label" parent="popup" unique_id=1425677383]
+offset_left = 186.47433
+offset_top = -99.99998
+offset_right = 545.47437
+offset_bottom = 37.000023
+scale = Vector2(-1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Press G"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

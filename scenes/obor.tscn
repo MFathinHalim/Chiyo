@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bm7d71i41swo8"]
+
+[ext_resource type="Texture2D" uid="uid://cglee314grytb" path="res://assets/sprites/obor.png" id="1_ym6od"]
+[ext_resource type="PackedScene" uid="uid://dy6rk6eiqk472" path="res://scenes/api.tscn" id="2_om5ng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om5ng"]
+atlas = ExtResource("1_ym6od")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wcj3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om5ng")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Obor" type="AnimatedSprite2D" unique_id=1541740562]
+sprite_frames = SubResource("SpriteFrames_wcj3w")
+autoplay = "default"
+frame_progress = 0.449009
+
+[node name="Obor" parent="." unique_id=2132736254 instance=ExtResource("2_om5ng")]
+position = Vector2(0, -5)
+scale = Vector2(1.2, 1.2)
+frame_progress = 0.7180401

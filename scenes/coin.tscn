@@ -227,6 +227,8 @@ stream = ExtResource("3_11l1o")
 bus = &"Sound Effect"
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1060317816]
+position = Vector2(1.9073486e-06, -1.9073486e-06)
+scale = Vector2(0.171875, 0.15625)
 texture = SubResource("GradientTexture2D_d14el")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -322,6 +322,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
 radius = 6.0
 
+[sub_resource type="Curve" id="Curve_qlg0r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dqkch"]
 particle_flag_disable_z = true
 angle_min = 1.0728835e-05
@@ -331,10 +335,6 @@ spread = 56.385
 initial_velocity_max = 17.18
 gravity = Vector3(0, 0, 0)
 color = Color(0.6955032, 0.6955031, 0.6955031, 1)
-
-[sub_resource type="Curve" id="Curve_qlg0r"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [node name="player" type="CharacterBody2D" unique_id=1665970681 groups=["player"]]
 z_index = 5
@@ -363,6 +363,13 @@ stream = ExtResource("4_dqkch")
 
 [node name="JumpResetTimer" type="Timer" parent="." unique_id=1852115322]
 
+[node name="DashTrail" type="Line2D" parent="." unique_id=571767258]
+position = Vector2(1.4305115e-06, -6.000003)
+rotation = 3.1051314
+scale = Vector2(0.99999994, 0.99999994)
+width_curve = SubResource("Curve_qlg0r")
+script = ExtResource("5_qlg0r")
+
 [node name="DebuParticles" type="GPUParticles2D" parent="." unique_id=69325727]
 position = Vector2(4.7683716e-07, -1)
 rotation = 3.1051314
@@ -371,11 +378,5 @@ amount = 50
 lifetime = 1.35
 interp_to_end = 0.12
 process_material = SubResource("ParticleProcessMaterial_dqkch")
-
-[node name="DashTrail" type="Line2D" parent="." unique_id=860828917]
-position = Vector2(0, -7)
-width_curve = SubResource("Curve_qlg0r")
-default_color = Color(0.6408, 0.7072533, 0.89, 0.3529412)
-script = ExtResource("5_qlg0r")
 
 [connection signal="timeout" from="JumpResetTimer" to="." method="_on_jump_reset_timer_timeout"]

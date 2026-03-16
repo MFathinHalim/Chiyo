@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var text_box = %TextBox/TextboxContainer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_reset_timer: Timer = $JumpResetTimer
+@onready var debu: GPUParticles2D = $DebuParticles
 
 var total_jump := 0
 var is_hurt := false
@@ -53,25 +54,30 @@ func _physics_process(delta: float) -> void:
 		# ======================
 		# INPUT NORMAL
 		# ======================
+		debu.emitting = false
+		
 
 		if Input.is_action_just_pressed("jump"):
 			if total_jump == 0:
+				debu.emitting = true
 				velocity.y = GameManager.JUMP_VELOCITY
 				total_jump += 1
 				jump_reset_timer.start()
 			elif total_jump == 1:
+				debu.emitting = true
 				velocity.y = GameManager.JUMP_VELOCITY
 				total_jump += 1
 			elif total_jump > 1 and air_dash_count < MAX_AIR_DASH:
 				_start_dash(direction)
-		
 		if not is_dashing:
 			if direction != 0:
+				if(is_on_floor()):
+					debu.emitting = true
 				velocity.x = direction * GameManager.SPEED
 			else:
 				velocity.x = move_toward(velocity.x, 0, GameManager.SPEED)
 	
-	
+
 	# ======================
 	# DASH TIMER
 	# ======================
@@ -138,7 +144,7 @@ func _physics_process(delta: float) -> void:
 
 func _start_dash(dir: float) -> void:
 	if dir == 0:
-		dir = -1 if animated_sprite.flip_h else 1
+		return
 	
 	is_dashing = true
 	air_dash_count += 1

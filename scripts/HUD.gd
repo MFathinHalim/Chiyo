@@ -27,9 +27,6 @@ func _ready():
 	GameManager.total = coins.get_child_count()
 	press_g.visible = false
 	
-	if OS.has_feature("mobile"):
-		press_g.text = "Check Sign"
-	
 	update_ui()
 
 
@@ -66,24 +63,28 @@ func _connect_dialog_finished(sign):
 	if textbox and sign.has_method("resume_attack"):
 		textbox.dialog_finished.connect(sign.resume_attack)	
 func _on_show_prompt(sign):
-	press_g.visible = true
+	current_sign = sign
+	if OS.has_feature("mobile"):
+		press_g.visible = true
 
 func _on_hide_prompt(sign):
 	if current_sign == sign:
 		current_sign = null
-	press_g.visible = false
+	if OS.has_feature("mobile"):
+		press_g.visible = false
 
-func _on_trigger_dialog(lines: Array[String]):
+func _on_trigger_dialog(lines: Array[Dictionary]):
+	print(lines)
 	textbox.start_dialog(lines)
 
 # =========================
 # PROCESS
 # =========================
 func _process(delta: float):
-	if press_g.visible and Input.is_action_just_pressed("ui_accept"):
-		if current_sign:
-			current_sign.interact()
-			press_g.visible = false
+	if current_sign and Input.is_action_just_pressed("ui_accept"):
+		current_sign.interact()
+		press_g.visible = false
+		current_sign = null
 	
 	update_ui()
 
